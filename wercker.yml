@@ -12,7 +12,7 @@ build:
   - script:
       name: "go test"
       code: |
-        go test -v ./cmd/... ./internal/...
+        go test -v ./pkg/...
 
   - script:
       name: "go build"
