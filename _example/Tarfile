@@ -1,0 +1,2 @@
+COPY hello bin/hello
+COPY .heroku.json .heroku.json

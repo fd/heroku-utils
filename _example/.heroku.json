@@ -1,0 +1,5 @@
+{
+  "process_types": {
+    "web": "bin/hello"
+  }
+}
