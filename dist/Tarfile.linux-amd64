@@ -1,0 +1,2 @@
+COPY bin/x-heroku-linux-amd64/x-heroku .
+CHMOD 0755 x-heroku

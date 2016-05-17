@@ -1,0 +1,2 @@
+COPY bin/x-heroku-darwin-amd64/x-heroku .
+CHMOD 0755 x-heroku
