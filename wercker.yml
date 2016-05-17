@@ -35,9 +35,9 @@ prerelease:
         VERSION="$(v5n store bump x-heroku rc)"
         v5n apply --commit $WERCKER_GIT_COMMIT --author "Simon Menke" bin/x-heroku-linux-amd64/x-heroku  "$VERSION"
         v5n apply --commit $WERCKER_GIT_COMMIT --author "Simon Menke" bin/x-heroku-darwin-amd64/x-heroku "$VERSION"
-        x-heroku build -t Tarfile.linux-amd64  | gzip > dist/x-heroku-linux-amd64.tar.gz
-        x-heroku build -t Tarfile.darwin-amd64 | gzip > dist/x-heroku-darwin-amd64.tar.gz
-        ghr -u fd -r tar-utils -c $WERCKER_GIT_COMMIT --replace --prerelease "v$VERSION" ./dist
+        x-tar build -t Tarfile.linux-amd64  | gzip > dist/x-heroku-linux-amd64.tar.gz
+        x-tar build -t Tarfile.darwin-amd64 | gzip > dist/x-heroku-darwin-amd64.tar.gz
+        ghr -u fd -r heroku-utils -c $WERCKER_GIT_COMMIT --replace --prerelease "v$VERSION" ./dist
   - mbrevda/wercker-triggerbuild@0.0.10:
       token: $WRK_TOKEN
       application_id: $WRK_APP
@@ -57,9 +57,9 @@ stable:
         VERSION="$(v5n store bump x-heroku final+patch)"
         v5n apply --commit $WERCKER_GIT_COMMIT --author "Simon Menke" bin/x-heroku-linux-amd64/x-heroku  "$VERSION"
         v5n apply --commit $WERCKER_GIT_COMMIT --author "Simon Menke" bin/x-heroku-darwin-amd64/x-heroku "$VERSION"
-        x-heroku build -t Tarfile.linux-amd64  | gzip > dist/x-heroku-linux-amd64.tar.gz
-        x-heroku build -t Tarfile.darwin-amd64 | gzip > dist/x-heroku-darwin-amd64.tar.gz
-        ghr -u fd -r tar-utils -c $WERCKER_GIT_COMMIT --replace "v$VERSION" ./dist
+        x-tar build -t Tarfile.linux-amd64  | gzip > dist/x-heroku-linux-amd64.tar.gz
+        x-tar build -t Tarfile.darwin-amd64 | gzip > dist/x-heroku-darwin-amd64.tar.gz
+        ghr -u fd -r heroku-utils -c $WERCKER_GIT_COMMIT --replace "v$VERSION" ./dist
   - mbrevda/wercker-triggerbuild@0.0.10:
       token: $WRK_TOKEN
       application_id: $WRK_APP
